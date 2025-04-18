@@ -20,12 +20,18 @@
     ```bash
    poetry install
    ```
-4. Запуск проекта:
+
+4. Компилируем проект в `.exe`
+    ```bash
+    make compile
+    ```
+
+5. Запуск проекта:
     ```bash
     make run INI=`file from /configs`
     ```
 
-4. Для тестирования используйте pytest:
+6. Для тестирования используйте pytest:
     ```bash
    make test
    ```

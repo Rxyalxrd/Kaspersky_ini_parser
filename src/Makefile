@@ -10,6 +10,9 @@ INI = ""
 install:
 	poetry install --no-root
 
+install-prod
+	poetry install --no-dev
+
 clean:
 	@echo "Cleaning up Python directories..."
 	find . -name "*.pyc" -delete
@@ -21,10 +24,10 @@ clean:
 	find . -name ".pytest_cache" -type d -exec rm -r {} +
 
 run:
-	poetry run python app/main.py -f $(INI)
+	./dist/kaspersky_validator.exe -f $(INI)
 
 compile:
-	poetry run pyinstaller --onefile src/app/main.py
+	pyinstaller --onefile --add-data "../configs;configs" -p=".;../..;app" --name kaspersky_validator app/main.py
 
 test:
 	poetry run python -m pytest

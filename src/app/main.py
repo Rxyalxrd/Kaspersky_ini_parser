@@ -4,7 +4,7 @@ from framework.validation import ValidateConfig
 
 
 def main():
-    validator = ValidateConfig("sample")
+    validator = ValidateConfig("valid_sample")
 
     if validator.validate():
         logger.success("✅ Конфигурация прошла валидацию успешно.")

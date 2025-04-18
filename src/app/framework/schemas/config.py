@@ -3,7 +3,6 @@ from typing import (
     TypeAlias,
 )
 from uuid import UUID
-import os
 import re
 
 from pydantic import (
@@ -80,7 +79,7 @@ class GeneralSection(BaseModel):
     Locale: str
 
     @field_validator("CoreDumpsPath")
-    def check_path_exists(cls, v: str) -> str:
+    def check_path_exists(cls, v: str) -> bool:
         """
         Проверяет, является ли путь к дампам абсолютным.
 
@@ -91,19 +90,12 @@ class GeneralSection(BaseModel):
 
         Returns
         -------
-        str
+        bool
             Возвращает путь, если он абсолютный.
-
-        Exceptions
-        ----------
-        ValueError
-            Если путь не является абсолютным.
 
         """
 
-        if not os.path.isabs(v):
-            raise ValueError("CoreDumpsPath должен быть абсолютным путем.")
-        return v
+        return v.startswith('/')
     
     @field_validator("Locale")
     def validate_locale(cls, v: str) -> str:

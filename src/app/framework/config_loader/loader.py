@@ -72,7 +72,7 @@ class IniConfigLoader:
 
         try:
             parser = configparser.ConfigParser()
-            parser.optionxform = str
+            parser.optionxform = str  # type: ignore
             parser.read(self.config)
 
             logger.info("Предподготовка прошла успешно.")

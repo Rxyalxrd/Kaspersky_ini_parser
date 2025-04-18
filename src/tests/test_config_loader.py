@@ -5,10 +5,9 @@ from pydantic import ValidationError
 
 @pytest.fixture
 def valid_config_loader():
-    # Фикстура для инициализации IniConfigLoader с валидным конфигом
-    return IniConfigLoader('test_valid_config')
+    return IniConfigLoader("valid_sample")
 
-def test_valid_ini_config(valid_config_loader: IniConfigLoader):
+def test_valid_ini_config(valid_config_loader):
     """
     Тест на правильную загрузку и парсинг конфигурации.
     """
@@ -17,9 +16,9 @@ def test_valid_ini_config(valid_config_loader: IniConfigLoader):
     assert parsed_data is not None
     assert "General" in parsed_data
     assert "ScanMemoryLimit" in parsed_data["General"]
-    assert parsed_data["General"]["ScanMemoryLimit"] == "2048"
+    assert parsed_data["General"]["ScanMemoryLimit"] == "8192"
 
-def test_valid_config_validation(valid_config_loader: IniConfigLoader):
+def test_valid_config_validation(valid_config_loader):
     """
     Тест на валидацию правильного конфигурационного файла.
     """

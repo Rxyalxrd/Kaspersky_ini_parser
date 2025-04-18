@@ -3,7 +3,7 @@ from loguru import logger
 from framework.validation import ValidateConfig
 
 
-def main():
+def main() -> None:
     validator = ValidateConfig("valid_sample")
 
     if validator.validate():

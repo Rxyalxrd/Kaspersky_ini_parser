@@ -20,5 +20,8 @@ clean:
 run:
 	poetry run python app/main.py
 
+compile:
+	poetry run pyinstaller --onefile src/app/main.py
+
 test:
 	poetry run python -m pytest

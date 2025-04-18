@@ -4,8 +4,6 @@ from pathlib import Path
 
 from loguru import logger
 
-from core import settings
-
 
 ConfigDataType: TypeAlias = dict[str, str]
 
@@ -44,7 +42,7 @@ class IniConfigLoader:
         
         logger.debug("Загружаем .ini файл ...")
 
-        self.config = Path(settings.ini_path) / f"{ininame}.ini"
+        self.config = Path(__file__).parents[4] / f"configs/{ininame}.ini"
 
         if not self.config.exists():
             logger.error("Файл конфигурации не найден")

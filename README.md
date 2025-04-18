@@ -7,7 +7,7 @@
 1. Клонируйте репозиторий:
 
    ```bash
-   git clone https://github.com/Rxyalxrd/Kaspersky_ini_parser
+   git clone https://github.com/Rxyalxrd/Kaspersky_ini_parser.git
    ```
 
 2. Перейдите в каталог проекта:
@@ -23,7 +23,7 @@
 
 4. Для тестирования используйте pytest:
     ```bash
-   poetry install
+   make test
    ```
 ## Структура проекта
 

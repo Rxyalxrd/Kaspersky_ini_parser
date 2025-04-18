@@ -1,7 +1,7 @@
 from loguru import logger
 
 from framework.validation import ValidateConfig
-
+from cli import parse_args
 
 def main() -> None:
     """
@@ -12,7 +12,9 @@ def main() -> None:
 
     """
 
-    validator = ValidateConfig("valid_sample")
+    args = parse_args()
+
+    validator = ValidateConfig(args.file)
 
     if validator.validate():
         logger.success("✅ Конфигурация прошла валидацию успешно.")

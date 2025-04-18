@@ -6,13 +6,14 @@ authors = ["Maxim Tsaregradtsev <3m3rcy3@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = ">=3.12,<3.14"
 pydantic = "^2.11.3"
 pytest = "^8.3.5"
 pydantic-settings = "^2.8.1"
 loguru = "^0.7.3"
 pyyaml = "^6.0.2"
 types-pyyaml = "^6.0.12.20250402"
+pyinstaller = "^6.13.0"
 
 
 [tool.poetry.group.dev.dependencies]

@@ -20,11 +20,16 @@
     ```bash
    poetry install
    ```
+4. Запуск проекта:
+    ```bash
+    make run INI=`file from /configs`
+    ```
 
 4. Для тестирования используйте pytest:
     ```bash
    make test
    ```
+
 ## Структура проекта
 
 - `framework/`: Основной код проекта, включая валидацию конфигурации.
@@ -32,3 +37,4 @@
 - `framework/schemas.py`: Описание схем данных с использованием Pydantic.
 - `framework/validation.py`: Логика валидации конфигураций с использованием схем.
 - `test/`: Папка с тестами.
+

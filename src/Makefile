@@ -1,8 +1,11 @@
+INI = ""
+
 .PHONY: 
 	clean
 	install
 	run
 	test
+	compile
 
 install:
 	poetry install --no-root
@@ -18,7 +21,7 @@ clean:
 	find . -name ".pytest_cache" -type d -exec rm -r {} +
 
 run:
-	poetry run python app/main.py
+	poetry run python app/main.py -f $(INI)
 
 compile:
 	poetry run pyinstaller --onefile src/app/main.py

@@ -1,6 +1,7 @@
 from typing import TypeAlias
 import configparser
 from pathlib import Path
+import sys
 
 from loguru import logger
 
@@ -42,7 +43,12 @@ class IniConfigLoader:
         
         logger.debug("Загружаем .ini файл ...")
 
-        self.config = Path(__file__).parents[4] / f"configs/{ininame}.ini"
+        if getattr(sys, 'frozen', False):
+            base_path = Path(sys._MEIPASS)  # type: ignore
+        else:
+            base_path = Path(__file__).resolve().parents[4]
+        
+        self.config = base_path / f"configs/{ininame}.ini"
 
         if not self.config.exists():
             logger.error("Файл конфигурации не найден")
@@ -71,7 +77,7 @@ class IniConfigLoader:
         try:
             parser = configparser.ConfigParser()
             parser.optionxform = str  # type: ignore
-            parser.read(self.config)
+            parser.read(str(self.config), encoding="utf-8")
 
             logger.info("Предподготовка прошла успешно.")
         except Exception as e:

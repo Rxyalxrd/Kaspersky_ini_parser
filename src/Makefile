@@ -3,6 +3,7 @@ INI = ""
 .PHONY: 
 	clean
 	install
+	install-prod
 	run
 	test
 	compile
@@ -10,7 +11,7 @@ INI = ""
 install:
 	poetry install --no-root
 
-install-prod
+install-prod:
 	poetry install --no-dev
 
 clean:
